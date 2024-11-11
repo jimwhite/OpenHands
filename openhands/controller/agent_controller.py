@@ -321,6 +321,7 @@ class AgentController:
         ):
             # user intends to interrupt traffic control and let the task resume temporarily
             self.state.traffic_control_state = TrafficControlState.PAUSED
+            # TODO: This needs to go away. We have an explicit task to handle this...
             # User has chosen to deliberately continue - lets double the max iterations
             if (
                 self.state.iteration is not None

@@ -78,3 +78,13 @@ class AgentDelegateAction(Action):
     @property
     def message(self) -> str:
         return f"I'm asking {self.agent} for help with this task."
+
+@dataclass
+class SetAgentLimitsAction(Action):
+    max_iterations: int
+    max_budget_per_task: float
+    action: str = ActionType.SET_AGENT_LIMITS
+
+    @property
+    def message(self) -> str:
+        return f"Updating agent limits: max_iterations: {self.max_iterations}; max_budget_per_task: {self.max_budget_per_task};"

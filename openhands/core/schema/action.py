@@ -86,5 +86,8 @@ class ActionTypeSchema(BaseModel):
     SEND_PR: str = Field(default='send_pr')
     """Send a PR to github."""
 
+    SET_AGENT_LIMITS: str = Field(default='set_agent_limits')
+    """Set the agent limits."""
+
 
 ActionType = ActionTypeSchema()

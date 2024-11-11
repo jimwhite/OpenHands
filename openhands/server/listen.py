@@ -314,6 +314,10 @@ async def websocket_endpoint(websocket: WebSocket):
         ```json
         {"action": "finish", "args": {}}
         ```
+    - Set agent limits:
+        ```json
+        {"action": "set_agent_limits", "args": {"max_iterations": 100, "max_budget_per_task": 10.00}}
+        ```
     """
     # Get protocols from Sec-WebSocket-Protocol header
     protocols = websocket.headers.get('sec-websocket-protocol', '').split(', ')

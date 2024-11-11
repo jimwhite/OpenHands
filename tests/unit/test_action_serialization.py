@@ -12,6 +12,7 @@ from openhands.events.action import (
     ModifyTaskAction,
 )
 from openhands.events.action.action import ActionConfirmationStatus
+from openhands.events.action.agent import SetAgentLimitsAction
 from openhands.events.serialization import (
     event_from_dict,
     event_to_dict,
@@ -170,3 +171,8 @@ def test_modify_task_action_serialization_deserialization():
         'args': {'task_id': 1, 'state': 'Test state.', 'thought': ''},
     }
     serialization_deserialization(original_action_dict, ModifyTaskAction)
+
+
+def test_set_agent_limits_serialization_deserialization():
+    original_action_dict = {'action': 'set_agent_limits', 'args': {'max_iterations': 200, 'max_budget_per_task': 10.50}}
+    serialization_deserialization(original_action_dict, SetAgentLimitsAction)
